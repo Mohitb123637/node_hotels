@@ -5,12 +5,12 @@ const router = express.Router();
 router.post("/", async(req,res)=>{
     try {
       const item = req.body;
-      const newItem = new MenuItem(item);
+      const newItem = new menuItem(item);
       const savedItem = await newItem.save();
       console.log("Menu item saved successfully", savedItem);
       res.status(200).json(savedItem);
     } catch (error) {
-      console.log("Error saving Menu Item", err);
+      console.log("Error saving Menu Item", error);
       res.status(500).json({ error: "Internal Server Error" });
     }
   })
